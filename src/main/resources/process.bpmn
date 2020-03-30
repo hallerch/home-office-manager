@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.0">
+  <bpmn:process id="home-office-manager" name="home-office-manager" isExecutable="true">
+    <bpmn:sequenceFlow id="SequenceFlow1" sourceRef="StartEventProcessStarted" targetRef="Activity_1rphzgd" />
+    <bpmn:sequenceFlow id="Flow_00dfvwj" sourceRef="Activity_1rphzgd" targetRef="Gateway_02h58vv" />
+    <bpmn:userTask id="Activity_1rphzgd" name="Check if you have enough food">
+      <bpmn:incoming>SequenceFlow1</bpmn:incoming>
+      <bpmn:outgoing>Flow_00dfvwj</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_02h58vv" name="Do you have enough food">
+      <bpmn:incoming>Flow_00dfvwj</bpmn:incoming>
+      <bpmn:outgoing>Flow_1jma2bx</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1l1xnpa</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1jma2bx" name="Yes" sourceRef="Gateway_02h58vv" targetRef="Gateway_14rxvwx">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{enoughFood}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1l1xnpa" name="No" sourceRef="Gateway_02h58vv" targetRef="Activity_0ekhvfe">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not enoughFood}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="Activity_0ekhvfe" name="buy food">
+      <bpmn:incoming>Flow_1l1xnpa</bpmn:incoming>
+      <bpmn:outgoing>Flow_1slyej0</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_14rxvwx">
+      <bpmn:incoming>Flow_1jma2bx</bpmn:incoming>
+      <bpmn:incoming>Flow_1slyej0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0euye8o</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0euye8o" sourceRef="Gateway_14rxvwx" targetRef="EndEventProcessEnded" />
+    <bpmn:sequenceFlow id="Flow_1slyej0" sourceRef="Activity_0ekhvfe" targetRef="Gateway_14rxvwx" />
+    <bpmn:startEvent id="StartEventProcessStarted" name="Wake up">
+      <bpmn:outgoing>SequenceFlow1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEventProcessEnded" name="Go to bed and sleep">
+      <bpmn:incoming>Flow_0euye8o</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="home-office-manager">
+      <bpmndi:BPMNEdge id="SequenceFlow_08va5r8_di" bpmnElement="SequenceFlow1">
+        <di:waypoint x="158" y="280" />
+        <di:waypoint x="270" y="280" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="337.5" y="110" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00dfvwj_di" bpmnElement="Flow_00dfvwj">
+        <di:waypoint x="370" y="280" />
+        <di:waypoint x="445" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_10b8nh9_di" bpmnElement="Activity_1rphzgd">
+        <dc:Bounds x="270" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_02h58vv_di" bpmnElement="Gateway_02h58vv" isMarkerVisible="true">
+        <dc:Bounds x="445" y="255" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="439" y="312" width="62" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1jma2bx_di" bpmnElement="Flow_1jma2bx">
+        <di:waypoint x="495" y="280" />
+        <di:waypoint x="645" y="280" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="511" y="262" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1l1xnpa_di" bpmnElement="Flow_1l1xnpa">
+        <di:waypoint x="470" y="255" />
+        <di:waypoint x="470" y="120" />
+        <di:waypoint x="520" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="478" y="223" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_110pjel_di" bpmnElement="Activity_0ekhvfe">
+        <dc:Bounds x="520" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_14rxvwx_di" bpmnElement="Gateway_14rxvwx" isMarkerVisible="true">
+        <dc:Bounds x="645" y="255" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0euye8o_di" bpmnElement="Flow_0euye8o">
+        <di:waypoint x="695" y="280" />
+        <di:waypoint x="772" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1slyej0_di" bpmnElement="Flow_1slyej0">
+        <di:waypoint x="620" y="120" />
+        <di:waypoint x="670" y="120" />
+        <di:waypoint x="670" y="255" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0fv8suq_di" bpmnElement="StartEventProcessStarted">
+        <dc:Bounds x="122" y="262" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="118" y="298" width="44" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ne450p_di" bpmnElement="EndEventProcessEnded">
+        <dc:Bounds x="772" y="262" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="755" y="298" width="70" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
