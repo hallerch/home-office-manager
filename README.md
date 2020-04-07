@@ -15,10 +15,10 @@ ___
 #### Version 1 - Generated Task Forms
 In Camunda Modeler click on a User Task Activity.
 Click on the tab 'Forms' and add a Form Field. 
-<img src="image/generated-task-forms-1.png" width="500" alt="generated-task-forms-1.png">
+<img src="images/generated-task-forms-1.png" width="500" alt="generated-task-forms-1.png">
 
 In Camunda go to the 'Tasklist' Claim the user task and fill in the fields
-<img src="image/generated-task-form-2.png" width="500" alt="generated-task-form-2.png">
+<img src="images/generated-task-form-2.png" width="500" alt="generated-task-form-2.png">
 #### Version 2 - Angular.js
 #### Version 3 - Custom
 ___
