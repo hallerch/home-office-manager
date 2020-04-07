@@ -1,24 +1,24 @@
 # home-office-manager
 Manage your home office day in a easy way
 ___
-###Task 1 - Java delegate
+### Task 1 - Java delegate
 Example in the code:
 * Java class: EnoughFoodDelegate
 * BPMN Activity: Check if you have enough food
 
 [Camunda Documentation: Delegation Code][1]
 ___
-###Task 2 - Service task to Human Task
+### Task 2 - Service task to Human Task
 Diffrence between [Manual Task][2] and [User Task][3]
 ___
-###Task 3 - User task with user interface
+### Task 3 - User task with user interface
 
-####Version 1 - Generated forms (table)
-####Version 2 - Angular.js
-####Version 3 - Custom (make it simple e.g. login mask)
+#### Version 1 - Generated forms (table)
+#### Version 2 - Angular.js
+#### Version 3 - Custom (make it simple e.g. login mask)
 ___
-###Task 4 - Presentation
-####Difference between internal and external tasks
+### Task 4 - Presentation
+#### Difference between internal and external tasks
 The process engine supports two ways of executing service tasks:
 1. Internal Service tasks: Synchronous invocation of code deployed along with a 
 	process application
