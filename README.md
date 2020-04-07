@@ -8,14 +8,19 @@ Example in the code:
 
 [Camunda Documentation: Delegation Code][1]
 ___
-### Task 2 - Service task to Human Task
+### Task 2 - Service task to Manual Task
 Diffrence between [Manual Task][2] and [User Task][3]
 ___
 ### Task 3 - User task with user interface
+#### Version 1 - Generated Task Forms
+In Camunda Modeler click on a User Task Activity.
+Click on the tab 'Forms' and add a Form Field. 
+<img src="image/generated-task-forms-1.png" width="500" alt="generated-task-forms-1.png">
 
-#### Version 1 - Generated forms (table)
+In Camunda go to the 'Tasklist' Claim the user task and fill in the fields
+<img src="image/generated-task-form-2.png" width="500" alt="generated-task-form-2.png">
 #### Version 2 - Angular.js
-#### Version 3 - Custom (make it simple e.g. login mask)
+#### Version 3 - Custom
 ___
 ### Task 4 - Presentation
 #### Difference between internal and external tasks
