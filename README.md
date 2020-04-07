@@ -1,5 +1,5 @@
 # home-office-manager
-Manage your home office day in a easy way
+Manage your home office day in an easy way
 ___
 ### Task 1 - Java delegate
 Example in the code:
@@ -9,7 +9,7 @@ Example in the code:
 [Camunda Documentation: Delegation Code][1]
 ___
 ### Task 2 - Service task to Manual Task
-Diffrence between [Manual Task][2] and [User Task][3]
+Difference between [Manual Task][2] and [User Task][3]
 ___
 ### Task 3 - User task with user interface
 #### Version 1 - Generated Task Forms
@@ -26,8 +26,53 @@ In Camunda go to the 'Tasklist' claim the user task and fill in the fields.
 * [Camunda Documentation: Generated Task Forms][4]
 #### Version 2 - Angular.js
 
+Install **AngularJS** and the **Camunda BPM JS SDK** as dependencies into your project using *bower*:
+
+Install *bower* through NPM with `npm install -g bower`
+
+For **AngularJS**:
+
+```bash
+bower install angular#1.2.32 --save
+```
+
+For **Camunda BPM JS SDK**:
+
+```bash
+bower install camunda-bpm-sdk-js --save
+```
+
+On the given *User Task* in the **Camunda Modeler**, set the following value into the *Form Key* field:
+
+`embedded:app:forms/your-form.html`
+
+![image-20200407172626038](/Users/marco.forster/Library/Application Support/typora-user-images/image-20200407172626038.png)
+
+Now you should be able to use AngularJS functions and more in your embedded form.
+
+Example in *angularjs-form.html*
+
+```html
+<form role="form" name="form">
+
+    <label for="checkbox">set to 'true' to buy some food</label><br>
+    <input type="text"
+           cam-variable-name="enoughFood"
+           cam-variable-type="Boolean"
+           ng-model="enoughFood"
+           id="checkbox">
+    <p ng-show="enoughFood">
+        Your input: <b>{{enoughFood}}</b> <br>
+        <sub>some sweet Two-Way Binding by AngularJS :o</sub>
+    </p>
+
+</form>
+```
 
 [Camunda Documentation: Embedded Task Forms][5]
+
+[Standalone Usage of JS SDK with AngularJS][6]
+
 #### Version 3 - Custom
 In Camunda Modeler click on a User Task Activity.
 Click on the tab 'Forms' and add in the 'Form Key' field 'app:forms/external-form.html'.
@@ -42,7 +87,8 @@ In Camunda go to the 'Tasklist' claim the user task and click on 'Open external 
 
 <img src="images/external-task-forms-3.png" width="500" alt="external-task-forms-2.png">
 
-[Camunda Documentation: External Task Forms][6]
+[Camunda Documentation: External Task Forms][7]
+
 ___
 ### Task 4 - Presentation
 #### Difference between internal and external tasks
@@ -69,4 +115,5 @@ ___
 [3]: https://docs.camunda.org/manual/7.8/reference/bpmn20/tasks/user-task/
 [4]: https://docs.camunda.org/manual/latest/user-guide/task-forms/#generated-task-forms
 [5]: https://docs.camunda.org/manual/latest/user-guide/task-forms/#embedded-task-forms
-[6]: https://docs.camunda.org/manual/latest/user-guide/task-forms/#external-task-forms
+[6]: https://github.com/camunda/camunda-bpm-examples/tree/master/sdk-js/browser-forms-angular
+[7]: https://docs.camunda.org/manual/latest/user-guide/task-forms/#external-task-forms
