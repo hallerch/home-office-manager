@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row vh-100 align-items-center">
+                <div class="col text-center">
+                    <h1>Work Simulator 3000</h1>
+                    <form role="form" name="form">
+                        <div class="form-group">
+                            <label>Lunch time?</label>
+                            <select class="form-control" id="lunchTime">
+                                <option>true</option>
+                                <option>false</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary" onclick="completeTask()">Complete Task</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script>
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const taskId = urlParams.get('taskId');
+            const url = "http://localhost:8080/engine-rest/task/" + taskId + "/complete";
+
+            function completeTask() {
+                var e = document.getElementById("lunchTime");
+                var value = e.options[e.selectedIndex].value;
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", url, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(
+                    JSON.stringify(
+                        {"variables":
+                                {"lunch": {"value": value}},
+                            "withVariablesInReturn": true
+                        })
+                );
+
+                Swal.fire(
+                    'Work done :)',
+                    'You can close this page now...',
+                    'success'
+                )
+            }
+        </script>
+    </body>
+</html>
