@@ -34,10 +34,6 @@
       <bpmn:outgoing>Flow_04b3kqk</bpmn:outgoing>
     </bpmn:parallelGateway>
     <bpmn:sequenceFlow id="Flow_1bg6l7e" sourceRef="Activity_15ckxvs" targetRef="Activity_1dpu8om" />
-    <bpmn:manualTask id="Activity_036bagq" name="Having lunch">
-      <bpmn:incoming>Flow_15ufhlo</bpmn:incoming>
-      <bpmn:outgoing>Flow_19cgico</bpmn:outgoing>
-    </bpmn:manualTask>
     <bpmn:manualTask id="Activity_15ckxvs" name="Dinner">
       <bpmn:incoming>Flow_020q718</bpmn:incoming>
       <bpmn:outgoing>Flow_1bg6l7e</bpmn:outgoing>
@@ -73,6 +69,19 @@
       <bpmn:incoming>Flow_19cgico</bpmn:incoming>
       <bpmn:incoming>Flow_04b3kqk</bpmn:incoming>
       <bpmn:outgoing>Flow_0m2vxug</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_036bagq" name="Having lunch">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="wahtwasyourlunch" label="What was your lunch?" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_15ufhlo</bpmn:incoming>
+      <bpmn:outgoing>Flow_19cgico</bpmn:outgoing>
     </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -129,9 +138,6 @@
         <di:waypoint x="960" y="120" />
         <di:waypoint x="1000" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Activity_06abvh7_di" bpmnElement="Activity_036bagq">
-        <dc:Bounds x="600" y="290" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0n7lbjn_di" bpmnElement="Activity_15ckxvs">
         <dc:Bounds x="860" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -189,6 +195,9 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Activity_0i0vc0m_di" bpmnElement="Activity_0aerljd">
         <dc:Bounds x="600" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1haueu5_di" bpmnElement="Activity_036bagq">
+        <dc:Bounds x="600" y="290" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
