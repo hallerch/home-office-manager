@@ -32,16 +32,18 @@
             const url = "http://localhost:8080/engine-rest/task/" + taskId + "/complete";
 
             function completeTask() {
-                var e = document.getElementById("lunchTime");
-                var value = e.options[e.selectedIndex].value;
+                let e = document.getElementById("lunchTime");
+                let value = e.options[e.selectedIndex].value;
+                let lunchValue = (value === "true");
 
-                var xhr = new XMLHttpRequest();
+                let xhr = new XMLHttpRequest();
                 xhr.open("POST", url, true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(
                     JSON.stringify(
-                        {"variables":
-                                {"lunch": {"value": value}},
+                        {
+                            "variables":
+                                {"lunch": {"value": lunchValue}},
                             "withVariablesInReturn": true
                         })
                 );
