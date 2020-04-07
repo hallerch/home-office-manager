@@ -19,7 +19,7 @@
       <bpmn:outgoing>Flow_0euye8o</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_0euye8o" sourceRef="Gateway_14rxvwx" targetRef="EndEventProcessEnded" />
-    <bpmn:sequenceFlow id="Flow_1slyej0" sourceRef="Activity_0ekhvfe" targetRef="Gateway_14rxvwx">
+    <bpmn:sequenceFlow id="Flow_1slyej0" name="Yes" sourceRef="Activity_0ekhvfe" targetRef="Gateway_14rxvwx">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{enoughFood}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:endEvent id="EndEventProcessEnded" name="End food check">
@@ -80,7 +80,7 @@
         <di:waypoint x="670" y="160" />
         <di:waypoint x="670" y="255" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="641" y="142" width="18" height="14" />
+          <dc:Bounds x="651" y="142" width="18" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1ne450p_di" bpmnElement="EndEventProcessEnded">
@@ -98,7 +98,7 @@
           <dc:Bounds x="180" y="298" width="80" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_00dfvwj_di" bpmnElement="Flow_00dfvwj" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+      <bpmndi:BPMNEdge id="Flow_00dfvwj_di" bpmnElement="Flow_00dfvwj" bioc:stroke="black" bioc:fill="white">
         <di:waypoint x="400" y="280" />
         <di:waypoint x="445" y="280" />
       </bpmndi:BPMNEdge>
