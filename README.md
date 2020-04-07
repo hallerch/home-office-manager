@@ -13,11 +13,14 @@ Diffrence between [Manual Task][2] and [User Task][3]
 ___
 ### Task 3 - User task with user interface
 #### Version 1 - Generated Task Forms
+
 In Camunda Modeler click on a User Task Activity.
 Click on the tab 'Forms' and add a 'Form Field'. 
+
 <img src="images/generated-task-form-1.png" width="500" alt="generated-task-form-1.png">
 
 In Camunda go to the 'Tasklist' claim the user task and fill in the fields.
+
 <img src="images/generated-task-form-2.png" width="500" alt="generated-task-form-2.png">
 
 * [Camunda Documentation: Generated Task Forms][4]
@@ -28,13 +31,17 @@ In Camunda go to the 'Tasklist' claim the user task and fill in the fields.
 #### Version 3 - Custom
 In Camunda Modeler click on a User Task Activity.
 Click on the tab 'Forms' and add in the 'Form Key' field 'app:forms/external-form.html'.
+
 <img src="images/external-task-forms-1.png" width="500" alt="external-task-forms-1.png">
 
 Check and understand the file src/main/webapp/forms/embedded-form.html
+
 <img src="images/external-task-forms-2.png" width="500" alt="external-task-forms-1.png">
 
 In Camunda go to the 'Tasklist' claim the user task and click on 'Open external form'
+
 <img src="images/external-task-forms-3.png" width="500" alt="external-task-forms-2.png">
+
 [Camunda Documentation: External Task Forms][6]
 ___
 ### Task 4 - Presentation
