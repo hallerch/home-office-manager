@@ -46,7 +46,7 @@ On the given *User Task* in the **Camunda Modeler**, set the following value int
 
 `embedded:app:forms/your-form.html`
 
-![image-20200407172626038](/Users/marco.forster/Library/Application Support/typora-user-images/image-20200407172626038.png)
+![Embedded Task Form with AngularJS](images/embedded-task-form-angularjs-1.png)
 
 Now you should be able to use AngularJS functions and more in your embedded form.
 
@@ -55,14 +55,14 @@ Example in *angularjs-form.html*
 ```html
 <form role="form" name="form">
 
-    <label for="checkbox">set to 'true' to buy some food</label><br>
+    <label for="input-field">set to 'true' to buy some food</label><br>
     <input type="text"
            cam-variable-name="enoughFood"
            cam-variable-type="Boolean"
            ng-model="enoughFood"
-           id="checkbox">
+           id="input-field">
     <p ng-show="enoughFood">
-        Your input: <b>{{enoughFood}}</b> <br>
+        Your input: <b>{{ enoughFood }}</b> <br>
         <sub>some sweet Two-Way Binding by AngularJS :o</sub>
     </p>
 
@@ -108,7 +108,8 @@ ___
 * [Camunda Documentation: User Task][3]
 * [Camunda Documentation: Generated Task Forms][4]
 * [Camunda Documentation: Embedded Task Forms][5]
-* [Camunda Documentation: External Task Forms][6]
+* [Standalone Usage of JS SDK with AngularJS][6]
+* [Camunda Documentation: External Task Forms][7]
 
 [1]: https://docs.camunda.org/manual/latest/user-guide/process-engine/delegation-code/
 [2]: https://docs.camunda.org/manual/7.8/reference/bpmn20/tasks/manual-task/
