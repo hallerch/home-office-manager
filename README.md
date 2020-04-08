@@ -1,17 +1,13 @@
 # home-office-manager
 Manage your home office day in an easy way
 ___
-### Task 1 - Java delegate
-Example in the code:
-* Java class: EnoughFoodDelegate
-* BPMN Activity: Check if you have enough food
-
+### Java delegate
 [Camunda Documentation: Delegation Code][1]
 ___
-### Task 2 - Service task to Manual Task
+### Service task to Manual Task
 Difference between [Manual Task][2] and [User Task][3]
 ___
-### Task 3 - User task with user interface
+### User task with user interface
 #### Version 1 - Generated Task Forms
 
 In Camunda Modeler click on a User Task Activity.
@@ -24,7 +20,7 @@ In Camunda go to the 'Tasklist' claim the user task and fill in the fields.
 <img src="images/generated-task-form-2.png" width="500" alt="generated-task-form-2.png">
 
 * [Camunda Documentation: Generated Task Forms][4]
-#### Version 2 - Angular.js
+#### Version 2 - Embedded Task Forms (Angular.js)
 
 Install **AngularJS** and the **Camunda BPM JS SDK** as dependencies into your project using *bower*:
 
@@ -73,7 +69,7 @@ Example in *angularjs-form.html*
 
 [Standalone Usage of JS SDK with AngularJS][6]
 
-#### Version 3 - Custom
+#### Version 3 - External Task Forms (Custom)
 In Camunda Modeler click on a User Task Activity.
 Click on the tab 'Forms' and add in the 'Form Key' field 'app:forms/external-form.html'.
 
@@ -88,19 +84,6 @@ In Camunda go to the 'Tasklist' claim the user task and click on 'Open external 
 <img src="images/external-task-forms-3.png" width="500" alt="external-task-forms-2.png">
 
 [Camunda Documentation: External Task Forms][7]
-
-___
-### Task 4 - Presentation
-#### Difference between internal and external tasks
-The process engine supports two ways of executing service tasks:
-1. Internal Service tasks: Synchronous invocation of code deployed along with a 
-	process application
-2. External tasks: Providing a unit of work in a list that can be polled by workers
-
-The first option is used when code is implemented as Delegation Code or as a Script. 
-By contrast, external (service) tasks work in a way that the process engine publishes 
-a unit of work to a worker to fetch and complete. We refer to this as the external 
-task pattern.
 ___
 ### Literature and sources
 * [Camunda Documentation: Delegation Code][1]

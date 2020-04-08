@@ -2,7 +2,6 @@ package ch.umb.developer;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
-import sun.jvm.hotspot.memory.SystemDictionary;
 
 public class EnoughFoodDelegate implements JavaDelegate {
 
